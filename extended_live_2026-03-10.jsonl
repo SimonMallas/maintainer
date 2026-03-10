@@ -1,0 +1,256 @@
+Maintainer starting...
+{"ts": 1773148992, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773148992, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 57.0, "swap_pct": 7.9}}
+{"ts": 1773148992, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773148992, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773148992, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 35.8}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.2}}}
+{"ts": 1773149012, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149022, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.9, "swap_pct": 7.9}}
+{"ts": 1773149022, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773149032, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149052, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149052, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.9, "swap_pct": 7.9}}
+{"ts": 1773149052, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149052, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.1}}}
+{"ts": 1773149072, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149082, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.9, "swap_pct": 7.9}}
+{"ts": 1773149082, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 2.5}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 5.9}}}
+{"ts": 1773149092, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149112, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149112, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773149112, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149112, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149112, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.4}}}
+{"ts": 1773149132, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149142, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773149142, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 7.4}}}
+{"ts": 1773149152, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149172, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149172, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773149172, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149172, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 2.2}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 4.9}}}
+{"ts": 1773149192, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773149202, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.6, "swap_pct": 7.9}}
+{"ts": 1773149203, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 7.4}}}
+{"ts": 1773149212, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149232, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773149232, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149232, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149233, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149233, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.6}}}
+{"ts": 1773149252, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149263, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.3, "swap_pct": 7.9}}
+{"ts": 1773149263, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773149272, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149292, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149292, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149293, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.4, "swap_pct": 7.9}}
+{"ts": 1773149293, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.4}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773149312, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149323, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.4, "swap_pct": 7.9}}
+{"ts": 1773149323, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 7.5}}}
+{"ts": 1773149332, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773149352, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149352, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149352, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149353, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149353, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.8}}}
+{"ts": 1773149372, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149383, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149383, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.6}}}
+{"ts": 1773149392, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149412, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773149412, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149413, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.3, "swap_pct": 7.9}}
+{"ts": 1773149413, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.8}}}
+{"ts": 1773149432, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149443, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.4, "swap_pct": 7.9}}
+{"ts": 1773149443, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 7.6}}}
+{"ts": 1773149452, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149472, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149472, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149472, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149473, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149473, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.7}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.2}}}
+{"ts": 1773149492, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149503, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149503, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773149512, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149532, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149532, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149533, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149533, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 1.9}}}
+{"ts": 1773149552, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149563, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149564, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 8.2}}}
+{"ts": 1773149572, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149592, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149592, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149592, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149593, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149594, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773149612, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149623, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149624, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.6}}}
+{"ts": 1773149632, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149652, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149652, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149653, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149654, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.8}}}
+{"ts": 1773149672, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149683, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773149684, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.2}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 11.4}}}
+{"ts": 1773149692, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149712, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149712, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149712, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149713, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.4, "swap_pct": 7.9}}
+{"ts": 1773149714, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773149732, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149743, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.4, "swap_pct": 7.9}}
+{"ts": 1773149744, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.5}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 7.2}}}
+{"ts": 1773149752, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149772, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149772, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149773, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.4, "swap_pct": 7.9}}
+{"ts": 1773149774, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.8}}}
+{"ts": 1773149792, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149803, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.6, "swap_pct": 7.9}}
+{"ts": 1773149804, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773149812, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149832, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149832, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149832, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149833, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773149834, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.8}}}
+{"ts": 1773149852, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149863, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773149864, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.6}}}
+{"ts": 1773149872, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149892, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149892, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149893, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773149894, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.6}}}
+{"ts": 1773149912, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149923, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773149924, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773149932, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149952, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149952, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773149952, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773149953, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773149954, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773149972, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773149983, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773149984, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.4}}}
+{"ts": 1773149992, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150012, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150012, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150013, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150014, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.3}}}
+{"ts": 1773150032, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773150043, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150044, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.9}}}
+{"ts": 1773150052, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773150072, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150072, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150072, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773150073, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150074, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 13.8}}}
+{"ts": 1773150092, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150103, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150104, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.6}}}
+{"ts": 1773150112, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150132, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150132, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150133, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150134, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.4}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.0}}}
+{"ts": 1773150152, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773150163, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150164, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.6}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 3.6}}}
+{"ts": 1773150172, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150192, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150192, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150192, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773150193, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773150195, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 13.6}}}
+{"ts": 1773150212, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150223, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773150225, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.4}}}
+{"ts": 1773150232, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150252, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150252, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150253, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.5, "swap_pct": 7.9}}
+{"ts": 1773150255, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773150272, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150283, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150285, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773150292, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150312, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150312, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150312, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773150313, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.9, "swap_pct": 7.9}}
+{"ts": 1773150315, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773150332, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150343, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773150345, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.7}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773150352, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150372, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150372, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150373, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773150375, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773150392, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773150403, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773150405, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.9}}}
+{"ts": 1773150412, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150432, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150432, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150432, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773150433, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.9, "swap_pct": 7.9}}
+{"ts": 1773150435, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773150452, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150463, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150465, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.2}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773150472, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150492, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150492, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150493, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.9, "swap_pct": 7.9}}
+{"ts": 1773150495, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.2}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773150512, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150523, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.8, "swap_pct": 7.9}}
+{"ts": 1773150525, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 7.1}}}
+{"ts": 1773150532, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150552, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150552, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150552, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773150553, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.9, "swap_pct": 7.9}}
+{"ts": 1773150555, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773150572, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150583, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150585, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.6}}}
+{"ts": 1773150592, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150612, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150612, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150613, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 7.9}}
+{"ts": 1773150615, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.5}}}
+{"ts": 1773150632, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150643, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.6, "swap_pct": 7.9}}
+{"ts": 1773150645, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.9}}}
+{"ts": 1773150652, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150672, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150672, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150672, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773150673, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.6, "swap_pct": 7.9}}
+{"ts": 1773150675, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.2}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.8}}}
+{"ts": 1773150692, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150703, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.6, "swap_pct": 7.9}}
+{"ts": 1773150705, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.3}}}
+{"ts": 1773150712, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150732, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150732, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773150733, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.6, "swap_pct": 7.9}}
+{"ts": 1773150735, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.7}}}
+{"ts": 1773150752, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}
+{"ts": 1773150763, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.6, "swap_pct": 7.9}}
+{"ts": 1773150765, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 3.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 6.8}}}
+{"ts": 1773150772, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 21, "vram_pct": 14.1}}

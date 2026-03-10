@@ -1,0 +1,14 @@
+Maintainer starting...
+{"ts": 1773132035, "module": "process", "status": "critical", "message": "Service openclaw is inactive", "data": {}}
+{"ts": 1773132035, "module": "remediation", "status": "skipped", "message": "Restart cooldown active (254s remaining)", "data": {}}
+{"ts": 1773132035, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773132035, "module": "memory", "status": "warn", "message": "psutil not installed; memory checks skipped", "data": {}}
+{"ts": 1773132035, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773132035, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773132035, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 35.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.7}}}
+{"ts": 1773132055, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773132065, "module": "process", "status": "critical", "message": "Service openclaw is inactive", "data": {}}
+{"ts": 1773132065, "module": "remediation", "status": "skipped", "message": "Restart cooldown active (224s remaining)", "data": {}}
+{"ts": 1773132065, "module": "memory", "status": "warn", "message": "psutil not installed; memory checks skipped", "data": {}}
+{"ts": 1773132065, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.1}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 3.4}}}
+{"ts": 1773132075, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}

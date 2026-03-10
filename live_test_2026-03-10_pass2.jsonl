@@ -1,0 +1,10 @@
+Maintainer starting...
+{"ts": 1773133989, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773133989, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 8.0}}
+{"ts": 1773133989, "module": "disk", "status": "ok", "message": "", "data": {"disk_pct": 37.0, "path": "/"}}
+{"ts": 1773133989, "module": "config_drift", "status": "ok", "message": "", "data": {}}
+{"ts": 1773133989, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 34.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.2}}}
+{"ts": 1773134009, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}
+{"ts": 1773134019, "module": "memory", "status": "ok", "message": "", "data": {"ram_pct": 56.7, "swap_pct": 8.0}}
+{"ts": 1773134019, "module": "sentinel_probe", "status": "ok", "message": "", "data": {"healthz": {"url": "http://127.0.0.1:8085/healthz", "ok": true, "status_code": 200, "latency_ms": 1.0}, "prom_up": {"url": "http://127.0.0.1:9090/metrics", "match": "process_start_time_seconds", "value": 1773004875.12, "min_value": 1.0, "status_code": 200, "latency_ms": 2.0}}}
+{"ts": 1773134029, "module": "gpu", "status": "ok", "message": "", "data": {"temp_c": 22, "vram_pct": 14.1}}

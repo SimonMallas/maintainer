@@ -1,0 +1,60 @@
+{
+  "runtime": {
+    "state_file": "maintainer_state.json",
+    "loop_sleep_seconds": 1
+  },
+  "enabled_modules": [
+    "process",
+    "gpu",
+    "memory",
+    "disk",
+    "config_drift",
+    "sentinel_probe"
+  ],
+  "process": {
+    "service_name": "openclaw",
+    "interval": 30
+  },
+  "gpu": {
+    "interval": 20,
+    "temp_warn": 80,
+    "temp_crit": 85
+  },
+  "memory": {
+    "interval": 30,
+    "ram_warn": 85,
+    "swap_crit": 30
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "warn_pct": 80,
+    "crit_pct": 90
+  },
+  "config_drift": {
+    "interval": 120,
+    "files": [
+      "openclaw.yaml"
+    ]
+  },
+  "sentinel_probe": {
+    "interval": 30,
+    "health_url": "",
+    "prom_url": "",
+    "prom_match": "up{job=\"sentinel\"}",
+    "prom_min_value": 1.0,
+    "latency_warn_ms": 0,
+    "http_timeout_sec": 3
+  },
+  "remediation": {
+    "dry_run": true,
+    "process_restart_cooldown_sec": 300,
+    "process_restart_max_retries": 3,
+    "process_restart_retry_window_sec": 1800
+  },
+  "alert_sink": {
+    "webhook_url": "",
+    "cooldown_sec": 300,
+    "http_timeout_sec": 5
+  }
+}
