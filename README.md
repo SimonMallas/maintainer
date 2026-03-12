@@ -1,3 +1,7 @@
+> ⚠️ **STATUS: NOT PRODUCTION-READY**
+> This repository is under active remediation and verification.
+> Do not use as battle-ready production software until release gates are re-validated.
+
 # Maintainer
 
 A host reliability daemon for OpenClaw runtime operations. Maintainer continuously checks host and service health, enforces safe remediation guardrails, and emits actionable alerts with evidence.
