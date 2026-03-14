@@ -93,7 +93,7 @@ def load_config() -> dict:
             "interval": 30,
             "health_url": "",
             "prom_url": "",
-            "prom_match": 'up{job="sentinel"}',
+            "prom_match": 'up{job="sentinel-control-plane"}',
             "prom_min_value": 1.0,
             "latency_warn_ms": 0,
             "http_timeout_sec": 3,

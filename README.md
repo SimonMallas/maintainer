@@ -75,7 +75,7 @@ Maintainer now loads runtime/module config from `config.json` at startup.
 - `MAINTAINER_ENABLED_MODULES` — comma-separated module list, e.g. `process,memory,disk`
 - `SENTINEL_HEALTH_URL` — Sentinel `/healthz` endpoint (empty disables check)
 - `SENTINEL_PROM_URL` — Prometheus metrics endpoint for scrape-up signal
-- `SENTINEL_PROM_MATCH` — metrics line substring to match (default `up{job="sentinel"}`)
+- `SENTINEL_PROM_MATCH` — metrics line substring to match (default `up{job="sentinel-control-plane"}`)
 - `SENTINEL_PROM_MIN_VALUE` — minimum acceptable value for matched metric (default `1`)
 - `SENTINEL_LATENCY_WARN_MS` — optional RTT warning threshold in ms (`0` disables)
 - `SENTINEL_HTTP_TIMEOUT_SEC` — HTTP timeout for probe calls (default `3`)
@@ -193,7 +193,7 @@ Suggested release hygiene:
 
 ## Sentinel probe runbook (Block D)
 1. **Set probe targets**
-   - `export SENTINEL_HEALTH_URL="http://127.0.0.1:8080/healthz"`
+   - `export SENTINEL_HEALTH_URL="http://127.0.0.1:8085/healthz"`
    - `export SENTINEL_PROM_URL="http://127.0.0.1:9090/metrics"`
    - Optional: `export SENTINEL_LATENCY_WARN_MS="250"`
 2. **Start Maintainer**
