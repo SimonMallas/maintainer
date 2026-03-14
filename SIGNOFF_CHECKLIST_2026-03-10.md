@@ -11,28 +11,28 @@
 
 ## Sign-off criteria
 1) **Accuracy**
-- [ ] Commands shown match actual scripts/files.
-- [ ] Config/env variable names are correct.
-- [ ] Status statements match current implementation.
+- [x] Commands shown match actual scripts/files.
+- [x] Config/env variable names are correct.
+- [x] Status statements match current implementation.
 
 2) **Operational clarity**
-- [ ] Startup/stop/restart steps are explicit.
-- [ ] Rollback steps are clear and low-risk.
-- [ ] Alert meanings (`ok/warn/critical`) are clear.
+- [x] Startup/stop/restart steps are explicit.
+- [x] Rollback steps are clear and low-risk.
+- [x] Alert meanings (`ok/warn/critical`) are clear.
 
 3) **Evidence quality**
-- [ ] Drill reports include commands + outcomes.
-- [ ] Live reports include duration + status counts.
-- [ ] Forced-alert proof includes captured payload evidence.
+- [x] Drill reports include commands + outcomes.
+- [x] Live reports include duration + status counts.
+- [x] Forced-alert proof includes captured payload evidence.
 
 4) **Launch readiness wording**
-- [ ] Distinguishes controlled profile vs full production assumptions.
-- [ ] Calls out systemd user/group/install-path placeholders.
+- [x] Distinguishes controlled profile vs full production assumptions.
+- [x] Calls out systemd user/group/install-path placeholders.
 
 ## Decision
-- [ ] Approved for launch prep
+- [x] Approved for launch prep
 - [ ] Approved with minor edits
 - [ ] Rework required
 
 ## Reviewer notes
-- 
+- Reviewed against README + March 10 evidence set (drill/live/extended/forced-alert/recap). Criteria satisfied for Phase 0 signoff scope.

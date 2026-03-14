@@ -1,7 +1,3 @@
-> ⚠️ **STATUS: NOT PRODUCTION-READY**
-> This repository is under active remediation and verification.
-> Do not use as battle-ready production software until release gates are re-validated.
-
 # Maintainer
 
 A host reliability daemon for OpenClaw runtime operations. Maintainer continuously checks host and service health, enforces safe remediation guardrails, and emits actionable alerts with evidence.
@@ -18,6 +14,25 @@ Current scope in `main.py`:
 
 ## Status
 Core Blocks A/C/D are live, and Block B webhook alert sink is now integrated.
+
+## Latest cross-system verification snapshot (2026-03-14)
+
+Controlled-profile release readiness was re-verified with Sentinel + Maintainer evidence.
+
+### Claim ↔ Evidence
+- Claim: cross-system release gate READY for controlled profile (G1–G7 PASS)
+  - Evidence: `evidence/release_readiness_20260314T060746Z/gate_results.tsv`
+- Claim: live runtime sanity checks were captured at verification time
+  - Evidence: `evidence/release_readiness_20260314T060746Z/runtime_checks.json`
+- Claim: operator decision was recorded in preflight log
+  - Evidence: `memory/PREFLIGHT_LOG.md` (2026-03-14T06:07:46Z)
+
+Bundle index:
+- `evidence/release_readiness_20260314T060746Z/release_readiness_report.md`
+- `evidence/release_readiness_20260314T060746Z/gate_results.tsv`
+- `evidence/release_readiness_20260314T060746Z/runtime_checks.json`
+
+Scope boundary: readiness claim is for controlled-profile operation only.
 
 ## Quick start
 ```bash
