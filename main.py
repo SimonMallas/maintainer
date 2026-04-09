@@ -230,8 +230,11 @@ def load_state() -> dict:
 
 
 def save_state(state: dict) -> None:
-    with open(STATE_FILE, "w") as fh:
+    path = Path(STATE_FILE)
+    tmp_path = path.with_suffix(".tmp")
+    with open(tmp_path, "w") as fh:
         json.dump(state, fh, indent=2)
+    tmp_path.replace(path)
 
 
 def get_remediation_state(action: str) -> dict:
@@ -293,7 +296,7 @@ def _build_alert_fingerprint(result: dict) -> str:
     return hashlib.sha256(f"{status}|{message}".encode("utf-8")).hexdigest()
 
 
-def dispatch_alert(module_name: str, result: dict) -> None:
+async def dispatch_alert(module_name: str, result: dict) -> None:
     if not ALERT_WEBHOOK_URL:
         return
 
@@ -333,7 +336,7 @@ def dispatch_alert(module_name: str, result: dict) -> None:
         "recovered_from": previous_status if event == "recovery" else None,
     }
 
-    ok, detail = _post_webhook(payload)
+    ok, detail = await asyncio.to_thread(_post_webhook, payload)
     if ok:
         module_alert_state.update(
             {
@@ -424,7 +427,8 @@ class ProcessModule(MaintainerModule):
         self.interval = interval
 
     async def run(self) -> dict:
-        result = subprocess.run(
+        result = await asyncio.to_thread(
+            subprocess.run,
             ["systemctl", "is-active", SERVICE_NAME],
             capture_output=True,
             text=True,
@@ -461,8 +465,8 @@ class GPUModule(MaintainerModule):
             if temp >= self.temp_warn:
                 return {"status": "warn", "message": f"GPU temp {temp}C", "data": data}
             return {"status": "ok", "data": data}
-        except Exception:
-            return {"status": "warn", "message": "GPU not detected"}
+        except Exception as exc:
+            return {"status": "warn", "message": f"GPU check failed: {exc}"}
 
 
 class MemoryModule(MaintainerModule):
@@ -733,7 +737,7 @@ async def scheduler(modules: list[MaintainerModule]) -> None:
                     result = {"status": "error", "message": str(exc)}
 
                 log(module.name, result["status"], result.get("message", ""), result.get("data"))
-                dispatch_alert(module.name, result)
+                await dispatch_alert(module.name, result)
                 record_module_state(module.name, result)
                 await remediate(module.name, result)
                 last_run_ts[module.name] = now()

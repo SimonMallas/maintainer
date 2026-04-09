@@ -1,0 +1,17 @@
+# Runtime state
+maintainer_state.json
+maintainer_state.tmp
+
+# Smoke test artefacts
+tools/webhook_payloads.ndjson
+maintainer_state_smoke.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Logs / data files
+*.jsonl
+*.ndjson

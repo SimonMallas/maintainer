@@ -82,7 +82,8 @@ def main() -> int:
             "message": "smoke-test critical alert",
             "data": {"source": "webhook_smoke.py"},
         }
-        module.dispatch_alert("smoke_module", result)
+        import asyncio as _asyncio
+        _asyncio.run(module.dispatch_alert("smoke_module", result))
 
         deadline = time.time() + args.timeout
         while time.time() < deadline:

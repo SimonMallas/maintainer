@@ -23,7 +23,7 @@
   "memory": {
     "interval": 30,
     "ram_warn": 85,
-    "swap_crit": 30
+    "swap_crit": 80
   },
   "disk": {
     "interval": 60,
