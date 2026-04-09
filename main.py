@@ -795,7 +795,7 @@ async def remediate_process_restart(service_name: str, reason: str) -> None:
         action_name = "dry_run_restart"
     else:
         log("remediation", "action", f"Restarting {service_name}")
-        subprocess.run(cmd, check=False)
+        await asyncio.to_thread(subprocess.run, cmd, check=False)
         action_name = "restart"
 
     retry_count += 1
@@ -826,6 +826,14 @@ async def remediate(module_name: str, result: dict) -> None:
         for svc in down_services:
             await remediate_process_restart(svc, reason)
     elif ON_CRITICAL_CMD:
+        action = f"on_critical_cmd_{module_name}"
+        action_state = get_remediation_state(action)
+        ts_now = now()
+        last_attempt_ts = action_state.get("last_attempt_ts", 0)
+        if last_attempt_ts and (ts_now - last_attempt_ts) < PROCESS_RESTART_COOLDOWN_SEC:
+            remaining = PROCESS_RESTART_COOLDOWN_SEC - (ts_now - last_attempt_ts)
+            log("remediation", "skipped", f"on_critical_cmd cooldown active for {module_name} ({remaining}s remaining)")
+            return
         cmd_parts = ON_CRITICAL_CMD.split()
         if REMEDIATION_DRY_RUN:
             log("remediation", "dry_run", f"Would run on_critical_cmd: {ON_CRITICAL_CMD}", {"module": module_name})
@@ -835,6 +843,8 @@ async def remediate(module_name: str, result: dict) -> None:
                 await run_cmd(cmd_parts)
             except Exception as exc:  # noqa: BLE001
                 log("remediation", "error", f"on_critical_cmd failed: {exc}", {"module": module_name})
+        action_state["last_attempt_ts"] = ts_now
+        save_remediation_state(action, action_state)
 
 
 # ── Scheduler ─────────────────────────────────────────────────────────────────

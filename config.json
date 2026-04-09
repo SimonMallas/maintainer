@@ -5,14 +5,13 @@
   },
   "enabled_modules": [
     "process",
-    "gpu",
     "memory",
     "disk",
     "config_drift",
     "sentinel_probe"
   ],
   "process": {
-    "services": ["openclaw"],
+    "services": ["sentinel"],
     "interval": 30
   },
   "gpu": {
@@ -34,12 +33,12 @@
   "config_drift": {
     "interval": 120,
     "files": [
-      "openclaw.yaml"
+      "/home/simon/sentinel-control-plane/config/policies.yaml"
     ]
   },
   "sentinel_probe": {
     "interval": 30,
-    "health_url": "",
+    "health_url": "http://127.0.0.1:8085/healthz",
     "prom_url": "",
     "prom_match": "up{job=\"sentinel-control-plane\"}",
     "prom_min_value": 1.0,
@@ -59,7 +58,7 @@
     "http_timeout_sec": 5
   },
   "status_api": {
-    "enabled": false,
+    "enabled": true,
     "host": "127.0.0.1",
     "port": 9101
   }
