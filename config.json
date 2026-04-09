@@ -12,7 +12,7 @@
     "sentinel_probe"
   ],
   "process": {
-    "service_name": "openclaw",
+    "services": ["openclaw"],
     "interval": 30
   },
   "gpu": {
@@ -50,11 +50,17 @@
     "dry_run": true,
     "process_restart_cooldown_sec": 300,
     "process_restart_max_retries": 3,
-    "process_restart_retry_window_sec": 1800
+    "process_restart_retry_window_sec": 1800,
+    "on_critical_cmd": ""
   },
   "alert_sink": {
     "webhook_url": "",
     "cooldown_sec": 300,
     "http_timeout_sec": 5
+  },
+  "status_api": {
+    "enabled": false,
+    "host": "127.0.0.1",
+    "port": 9101
   }
 }

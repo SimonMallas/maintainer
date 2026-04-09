@@ -1,12 +1,16 @@
+from __future__ import annotations
+
 import asyncio
-import subprocess
-import shutil
+import hashlib
 import json
 import os
+import shutil
+import subprocess
+import threading
 import time
-import hashlib
 import urllib.error
 import urllib.request
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 DEFAULT_CONFIG_PATH = Path(__file__).with_name("config.json")
@@ -14,18 +18,21 @@ DEFAULT_CONFIG_PATH = Path(__file__).with_name("config.json")
 APP_CONFIG: dict = {}
 STATE_FILE = "maintainer_state.json"
 LOOP_SLEEP_SECONDS = 1
-SERVICE_NAME = "openclaw"
 CONFIG_FILES: list[str] = []
 
 REMEDIATION_DRY_RUN = True
 PROCESS_RESTART_COOLDOWN_SEC = 300
 PROCESS_RESTART_MAX_RETRIES = 3
 PROCESS_RESTART_RETRY_WINDOW_SEC = 1800
+ON_CRITICAL_CMD = ""
 
 ALERT_WEBHOOK_URL = ""
 ALERT_COOLDOWN_SEC = 300
 ALERT_HTTP_TIMEOUT_SEC = 5
 ALERT_STATUSES = {"warn", "critical", "error"}
+
+STATUS_API_HOST = "127.0.0.1"
+STATUS_API_PORT = 0  # 0 = disabled
 
 
 def now() -> int:
@@ -99,7 +106,6 @@ def load_config() -> dict:
             "http_timeout_sec": 3,
         },
     )
-
     remediation = config.setdefault(
         "remediation",
         {
@@ -107,8 +113,11 @@ def load_config() -> dict:
             "process_restart_cooldown_sec": 300,
             "process_restart_max_retries": 3,
             "process_restart_retry_window_sec": 1800,
+            "on_critical_cmd": "",
         },
     )
+    remediation.setdefault("on_critical_cmd", "")
+
     alert_sink = config.setdefault(
         "alert_sink",
         {
@@ -117,9 +126,25 @@ def load_config() -> dict:
             "http_timeout_sec": 5,
         },
     )
+    status_api = config.setdefault(
+        "status_api",
+        {
+            "enabled": False,
+            "host": "127.0.0.1",
+            "port": 9101,
+        },
+    )
+
+    # Backward compat: service_name (old) → services (new list)
+    if "services" not in process:
+        svc = process.get("service_name", "")
+        process["services"] = [svc] if svc else []
+    # Keep service_name pointing at first entry for any tooling that reads it
+    if process["services"]:
+        process["service_name"] = process["services"][0]
 
     _require_keys(runtime, ["state_file", "loop_sleep_seconds"], "runtime")
-    _require_keys(process, ["service_name", "interval"], "process")
+    _require_keys(process, ["services", "interval"], "process")
     _require_keys(gpu, ["interval", "temp_warn", "temp_crit"], "gpu")
     _require_keys(memory, ["interval", "ram_warn", "swap_crit"], "memory")
     _require_keys(disk, ["interval", "path", "warn_pct", "crit_pct"], "disk")
@@ -132,7 +157,10 @@ def load_config() -> dict:
 
     runtime["state_file"] = _env_str("MAINTAINER_STATE_FILE", runtime["state_file"])
     runtime["loop_sleep_seconds"] = _env_int("MAINTAINER_LOOP_SLEEP_SECONDS", runtime["loop_sleep_seconds"])
-    process["service_name"] = _env_str("MAINTAINER_SERVICE_NAME", process["service_name"])
+    # MAINTAINER_SERVICES=svc1,svc2 overrides the services list
+    services_env = os.getenv("MAINTAINER_SERVICES")
+    if services_env:
+        process["services"] = [s.strip() for s in services_env.split(",") if s.strip()]
     enabled_modules = _env_list("MAINTAINER_ENABLED_MODULES", config["enabled_modules"])
     config["enabled_modules"] = enabled_modules
     sentinel_probe["health_url"] = _env_str("SENTINEL_HEALTH_URL", sentinel_probe["health_url"])
@@ -162,11 +190,16 @@ def load_config() -> dict:
     if disk["crit_pct"] <= disk["warn_pct"]:
         raise ValueError("Config field 'disk.crit_pct' must be greater than 'disk.warn_pct'")
 
+    if not isinstance(process["services"], list) or not process["services"]:
+        raise ValueError("Config field 'process.services' must be a non-empty list of service names")
+
     if not isinstance(remediation["dry_run"], bool):
         raise ValueError("Config field 'remediation.dry_run' must be a boolean")
     _validate_positive_int(remediation["process_restart_cooldown_sec"], "remediation.process_restart_cooldown_sec")
     _validate_positive_int(remediation["process_restart_max_retries"], "remediation.process_restart_max_retries")
     _validate_positive_int(remediation["process_restart_retry_window_sec"], "remediation.process_restart_retry_window_sec")
+    if not isinstance(remediation["on_critical_cmd"], str):
+        raise ValueError("Config field 'remediation.on_critical_cmd' must be a string")
 
     if not isinstance(alert_sink["webhook_url"], str):
         raise ValueError("Config field 'alert_sink.webhook_url' must be a string")
@@ -182,6 +215,11 @@ def load_config() -> dict:
     if not isinstance(sentinel_probe["http_timeout_sec"], (int, float)) or sentinel_probe["http_timeout_sec"] <= 0:
         raise ValueError("Config field 'sentinel_probe.http_timeout_sec' must be > 0")
 
+    if not isinstance(status_api.get("enabled"), bool):
+        raise ValueError("Config field 'status_api.enabled' must be a boolean")
+    if not isinstance(status_api.get("port"), int) or not (1 <= status_api["port"] <= 65535):
+        raise ValueError("Config field 'status_api.port' must be an integer between 1 and 65535")
+
     known_modules = {"process", "gpu", "memory", "disk", "config_drift", "sentinel_probe"}
     unknown = [name for name in enabled_modules if name not in known_modules]
     if unknown:
@@ -193,13 +231,14 @@ def load_config() -> dict:
 
 
 def apply_config(config: dict) -> None:
-    global APP_CONFIG, STATE_FILE, LOOP_SLEEP_SECONDS, SERVICE_NAME, CONFIG_FILES
+    global APP_CONFIG, STATE_FILE, LOOP_SLEEP_SECONDS, CONFIG_FILES
     global REMEDIATION_DRY_RUN, PROCESS_RESTART_COOLDOWN_SEC, PROCESS_RESTART_MAX_RETRIES, PROCESS_RESTART_RETRY_WINDOW_SEC
+    global ON_CRITICAL_CMD
     global ALERT_WEBHOOK_URL, ALERT_COOLDOWN_SEC, ALERT_HTTP_TIMEOUT_SEC
+    global STATUS_API_HOST, STATUS_API_PORT
     APP_CONFIG = config
     STATE_FILE = config["runtime"]["state_file"]
     LOOP_SLEEP_SECONDS = config["runtime"]["loop_sleep_seconds"]
-    SERVICE_NAME = config["process"]["service_name"]
     CONFIG_FILES = config["config_drift"]["files"]
 
     remediation = config["remediation"]
@@ -207,11 +246,16 @@ def apply_config(config: dict) -> None:
     PROCESS_RESTART_COOLDOWN_SEC = remediation["process_restart_cooldown_sec"]
     PROCESS_RESTART_MAX_RETRIES = remediation["process_restart_max_retries"]
     PROCESS_RESTART_RETRY_WINDOW_SEC = remediation["process_restart_retry_window_sec"]
+    ON_CRITICAL_CMD = remediation.get("on_critical_cmd", "")
 
     alert_sink = config["alert_sink"]
     ALERT_WEBHOOK_URL = alert_sink["webhook_url"]
     ALERT_COOLDOWN_SEC = alert_sink["cooldown_sec"]
     ALERT_HTTP_TIMEOUT_SEC = alert_sink["http_timeout_sec"]
+
+    status_api = config.get("status_api", {})
+    STATUS_API_HOST = status_api.get("host", "127.0.0.1")
+    STATUS_API_PORT = status_api.get("port", 9101) if status_api.get("enabled") else 0
 
 
 def sha256_file(path: str) -> str:
@@ -412,6 +456,46 @@ def parse_prom_metric_value(prom_text: str, match: str) -> float | None:
     return None
 
 
+# ── Status API ────────────────────────────────────────────────────────────────
+
+class _StatusHandler(BaseHTTPRequestHandler):
+    def do_GET(self) -> None:  # noqa: N802
+        if self.path not in ("/status", "/status/"):
+            self.send_response(404)
+            self.end_headers()
+            return
+        try:
+            state = load_state()
+            modules = state.get("modules", {})
+            overall = "ok"
+            for m in modules.values():
+                s = m.get("status", "unknown")
+                if s in ("critical", "error"):
+                    overall = "critical"
+                    break
+                if s == "warn" and overall == "ok":
+                    overall = "warn"
+            body = json.dumps({"status": overall, "ts": now(), "modules": modules}, indent=2).encode()
+        except Exception as exc:  # noqa: BLE001
+            body = json.dumps({"status": "error", "error": str(exc)}).encode()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, format: str, *args) -> None:  # noqa: A002
+        return
+
+
+def _start_status_server(host: str, port: int) -> None:
+    server = ThreadingHTTPServer((host, port), _StatusHandler)
+    log("status_api", "info", f"Status API listening on http://{host}:{port}/status")
+    server.serve_forever()
+
+
+# ── Modules ───────────────────────────────────────────────────────────────────
+
 class MaintainerModule:
     name = "base"
     interval = 60
@@ -423,21 +507,31 @@ class MaintainerModule:
 class ProcessModule(MaintainerModule):
     name = "process"
 
-    def __init__(self, interval: int):
+    def __init__(self, interval: int, services: list[str]):
         self.interval = interval
+        self.services = services
 
-    async def run(self) -> dict:
+    async def _check_service(self, svc: str) -> str:
         result = await asyncio.to_thread(
             subprocess.run,
-            ["systemctl", "is-active", SERVICE_NAME],
+            ["systemctl", "is-active", svc],
             capture_output=True,
             text=True,
             check=False,
         )
-        status = result.stdout.strip()
-        if status != "active":
-            return {"status": "critical", "message": f"Service {SERVICE_NAME} is {status}"}
-        return {"status": "ok"}
+        return result.stdout.strip()
+
+    async def run(self) -> dict:
+        statuses = await asyncio.gather(*[self._check_service(svc) for svc in self.services])
+        down = [(svc, st) for svc, st in zip(self.services, statuses) if st != "active"]
+        if down:
+            msgs = [f"{svc} ({st})" for svc, st in down]
+            return {
+                "status": "critical",
+                "message": f"Services down: {', '.join(msgs)}",
+                "data": {"down_services": [svc for svc, _ in down]},
+            }
+        return {"status": "ok", "data": {"services": self.services}}
 
 
 class GPUModule(MaintainerModule):
@@ -607,9 +701,14 @@ class SentinelProbeModule(MaintainerModule):
         return {"status": "ok", "data": data}
 
 
+# ── Module factory ────────────────────────────────────────────────────────────
+
 def build_modules(config: dict) -> list[MaintainerModule]:
     modules: dict[str, MaintainerModule] = {
-        "process": ProcessModule(interval=config["process"]["interval"]),
+        "process": ProcessModule(
+            interval=config["process"]["interval"],
+            services=config["process"]["services"],
+        ),
         "gpu": GPUModule(
             interval=config["gpu"]["interval"],
             temp_warn=config["gpu"]["temp_warn"],
@@ -640,8 +739,10 @@ def build_modules(config: dict) -> list[MaintainerModule]:
     return [modules[name] for name in config["enabled_modules"]]
 
 
-async def remediate_process_restart(reason: str) -> None:
-    action = "process_restart"
+# ── Remediation ───────────────────────────────────────────────────────────────
+
+async def remediate_process_restart(service_name: str, reason: str) -> None:
+    action = f"process_restart_{service_name}"
     action_state = get_remediation_state(action)
     ts_now = now()
 
@@ -667,7 +768,7 @@ async def remediate_process_restart(reason: str) -> None:
             }
         )
         save_remediation_state(action, action_state)
-        log("remediation", "skipped", f"Restart cooldown active ({remaining}s remaining)")
+        log("remediation", "skipped", f"Restart cooldown active for {service_name} ({remaining}s remaining)")
         return
 
     if retry_count >= PROCESS_RESTART_MAX_RETRIES:
@@ -684,16 +785,16 @@ async def remediate_process_restart(reason: str) -> None:
         log(
             "remediation",
             "blocked",
-            f"Restart retry cap reached ({retry_count}/{PROCESS_RESTART_MAX_RETRIES})",
+            f"Restart retry cap reached for {service_name} ({retry_count}/{PROCESS_RESTART_MAX_RETRIES})",
         )
         return
 
-    cmd = ["systemctl", "restart", SERVICE_NAME]
+    cmd = ["systemctl", "restart", service_name]
     if REMEDIATION_DRY_RUN:
         log("remediation", "dry_run", f"Would run: {' '.join(cmd)}")
         action_name = "dry_run_restart"
     else:
-        log("remediation", "action", f"Restarting {SERVICE_NAME}")
+        log("remediation", "action", f"Restarting {service_name}")
         subprocess.run(cmd, check=False)
         action_name = "restart"
 
@@ -720,8 +821,23 @@ async def remediate(module_name: str, result: dict) -> None:
     if result.get("status") != "critical":
         return
     if module_name == "process":
-        await remediate_process_restart(result.get("message", "process critical"))
+        down_services = result.get("data", {}).get("down_services", [])
+        reason = result.get("message", "process critical")
+        for svc in down_services:
+            await remediate_process_restart(svc, reason)
+    elif ON_CRITICAL_CMD:
+        cmd_parts = ON_CRITICAL_CMD.split()
+        if REMEDIATION_DRY_RUN:
+            log("remediation", "dry_run", f"Would run on_critical_cmd: {ON_CRITICAL_CMD}", {"module": module_name})
+        else:
+            log("remediation", "action", f"Running on_critical_cmd for {module_name}: {ON_CRITICAL_CMD}")
+            try:
+                await run_cmd(cmd_parts)
+            except Exception as exc:  # noqa: BLE001
+                log("remediation", "error", f"on_critical_cmd failed: {exc}", {"module": module_name})
 
+
+# ── Scheduler ─────────────────────────────────────────────────────────────────
 
 async def scheduler(modules: list[MaintainerModule]) -> None:
     last_run_ts = {module.name: 0 for module in modules}
@@ -748,7 +864,24 @@ async def main() -> None:
     config = load_config()
     apply_config(config)
     modules = build_modules(config)
-    print("Maintainer starting...")
+
+    if STATUS_API_PORT > 0:
+        t = threading.Thread(target=_start_status_server, args=(STATUS_API_HOST, STATUS_API_PORT), daemon=True)
+        t.start()
+
+    log("maintainer", "info", "Running initial health checks")
+    for module in modules:
+        try:
+            result = await asyncio.wait_for(module.run(), timeout=module.interval)
+        except asyncio.TimeoutError:
+            result = {"status": "error", "message": "Module timeout on startup"}
+        except Exception as exc:  # noqa: BLE001
+            result = {"status": "error", "message": str(exc)}
+        log(module.name, result["status"], result.get("message", ""), result.get("data"))
+        await dispatch_alert(module.name, result)
+        record_module_state(module.name, result)
+
+    log("maintainer", "info", "Initial checks complete — entering scheduler")
     await scheduler(modules)
 
 

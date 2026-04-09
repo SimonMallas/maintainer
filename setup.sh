@@ -36,13 +36,32 @@ echo ""
 info "Configuration  (press Enter to accept default)"
 echo ""
 
-read -r -p "  Service name to monitor [openclaw]: " INPUT_SERVICE
-export SERVICE_NAME="${INPUT_SERVICE:-openclaw}"
+read -r -p "  Services to monitor (comma-separated) [openclaw]: " INPUT_SERVICES
+INPUT_SERVICES="${INPUT_SERVICES:-openclaw}"
+# Convert comma-separated → JSON array for Python
+export SERVICES_JSON
+SERVICES_JSON=$(python3 -c "
+import json, sys
+parts = [s.strip() for s in sys.argv[1].split(',') if s.strip()]
+print(json.dumps(parts))
+" "$INPUT_SERVICES")
 
 read -r -p "  Disk path to monitor [/]: " INPUT_DISK
 export DISK_PATH="${INPUT_DISK:-/}"
 
 read -r -p "  Enable GPU monitoring? (NVIDIA only) [y/N]: " INPUT_GPU
+
+echo ""
+info "Status API"
+read -r -p "  Enable status API? [y/N]: " INPUT_STATUS_API
+if [[ "${INPUT_STATUS_API,,}" == "y" ]]; then
+    read -r -p "  Status API port [9101]: " INPUT_STATUS_PORT
+    export STATUS_API_ENABLED="true"
+    export STATUS_API_PORT="${INPUT_STATUS_PORT:-9101}"
+else
+    export STATUS_API_ENABLED="false"
+    export STATUS_API_PORT="9101"
+fi
 
 echo ""
 info "Sentinel probe  (leave blank to skip)"
@@ -83,12 +102,14 @@ with open(config_path) as f:
     config = json.load(f)
 
 config["enabled_modules"]                  = json.loads(os.environ["MODULES"])
-config["process"]["service_name"]          = os.environ["SERVICE_NAME"]
+config["process"]["services"]             = json.loads(os.environ["SERVICES_JSON"])
 config["disk"]["path"]                     = os.environ["DISK_PATH"]
 config["sentinel_probe"]["health_url"]     = os.environ.get("HEALTH_URL", "")
 config["sentinel_probe"]["prom_url"]       = os.environ.get("PROM_URL", "")
 config["alert_sink"]["webhook_url"]        = os.environ.get("WEBHOOK_URL", "")
 config["remediation"]["dry_run"]           = os.environ["DRY_RUN"] == "true"
+config["status_api"]["enabled"]            = os.environ["STATUS_API_ENABLED"] == "true"
+config["status_api"]["port"]              = int(os.environ["STATUS_API_PORT"])
 
 with open(config_path, "w") as f:
     json.dump(config, f, indent=2)
