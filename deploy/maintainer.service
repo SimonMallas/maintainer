@@ -5,11 +5,11 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-User=maintainer
-Group=maintainer
-WorkingDirectory=/opt/maintainer
+User=simon
+Group=simon
+WorkingDirectory=/home/simon/maintainer
 Environment=PYTHONUNBUFFERED=1
-ExecStart=/usr/bin/python3 main.py
+ExecStart=/home/simon/maintainer/.venv/bin/python3 /home/simon/maintainer/main.py
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=30
