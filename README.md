@@ -17,12 +17,16 @@ All core modules are live: process, GPU, memory, disk, config drift, and Sentine
 
 ## Quick start
 ```bash
+git clone https://github.com/SimonMallas/maintainer
 cd maintainer
-python3 -m venv .venv
-source .venv/bin/activate
-pip install psutil
-python main.py
+bash setup.sh
 ```
+
+The setup script will:
+- Create a Python venv and install `psutil`
+- Prompt for the service name, disk path, Sentinel health URL, webhook URL, and remediation mode
+- Write `config.json` and validate it
+- Offer to start immediately or install as a systemd service
 
 ## Configuration
 Maintainer now loads runtime/module config from `config.json` at startup.
