@@ -60,6 +60,4 @@
   "status_api": {
     "enabled": true,
     "host": "127.0.0.1",
-    "port": 9101
-  }
-}
+    "port": 9101\n  },\n  "multi_node": {\n    "delta_check": true,\n    "nodes": ["node1", "node2"],\n    "sync_interval": 60\n  }\n}
