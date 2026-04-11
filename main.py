@@ -10,6 +10,13 @@ import threading
 import time
 import urllib.error
 import urllib.request
+try:
+    from trl import DPOTrainer, DPOConfig
+    import dspy
+except ImportError:
+    DPOTrainer = None
+    DPOConfig = object
+    dspy = None
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -817,7 +824,39 @@ async def remediate_process_restart(service_name: str, reason: str) -> None:
     save_remediation_state(action, action_state)
 
 
+def dspy_rubric_score(result: dict) -> float:
+    # DSPy rubric for alert scoring
+    if dspy is None:
+        return 0.5
+    # Stub: define a simple signature
+    class AlertScorer(dspy.Signature):
+        """Score alert severity."""
+        alert_message: str = dspy.InputField()
+        score: float = dspy.OutputField(desc="Severity score 0-1")
+    scorer = dspy.ChainOfThought(AlertScorer)
+    prediction = scorer(alert_message=result.get("message", ""))
+    return float(prediction.score) if hasattr(prediction, 'score') else 0.5
+
+def dpo_rubric_score(result: dict) -> int:
+    # Stub DPO rubric scoring for alerts
+    # In real, use DPOTrainer to score preference
+    dspy_score = dspy_rubric_score(result)
+    status_priority = {"critical": 5, "error": 4, "warn": 3, "ok": 1}
+    score = status_priority.get(result.get("status", "ok"), 1)
+    # Adjust with DSPy
+    score = int(score * dspy_score)
+    # Mock adjustment
+    import random
+    score += random.randint(-1, 2)
+    return max(1, min(5, score))
+
 async def remediate(module_name: str, result: dict) -> None:
+    rubric = dpo_rubric_score(result)
+    if rubric > 4:
+        log("dpo", "info", f"High rubric score {rubric}, triggering restart for {module_name}")
+        # Example: restart process
+        if module_name == "process":
+            await remediate_process_restart("sentinel", "high DPO rubric")
     if result.get("status") != "critical":
         return
     if module_name == "process":
