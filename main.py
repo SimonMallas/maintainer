@@ -619,6 +619,10 @@ class DiskModule(MaintainerModule):
         return {"status": "ok", "data": data}
 
 
+def stub_session_search(query: str) -> list:
+    # Stub for session search in config drift detection
+    return [{'session': 'mock', 'data': 'no drift detected'}]  # mock no drift
+
 class ConfigDriftModule(MaintainerModule):
     name = "config_drift"
 
@@ -635,11 +639,15 @@ class ConfigDriftModule(MaintainerModule):
             current_hash = sha256_file(path)
             if hashes.get(path) and hashes[path] != current_hash:
                 changed.append(path)
+            # Add session search for drift
+            sessions = stub_session_search(f"drift in {path}")
+            if any('drift' in s.get('data', '') for s in sessions):
+                changed.append(f"{path} (session drift)")
             hashes[path] = current_hash
         state["config_hashes"] = hashes
         save_state(state)
         if changed:
-            return {"status": "warn", "message": f"Config changed: {', '.join(changed)}"}
+            return {"status": "warn", "message": f"Config drift: {', '.join(changed)}"}
         return {"status": "ok"}
 
 
