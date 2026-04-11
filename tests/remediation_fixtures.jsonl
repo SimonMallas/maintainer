@@ -1,0 +1,1 @@
+{"fixture": "process_down", "action": "restart", "expected": "success"}\n{"fixture": "memory_high", "action": "alert", "expected": "warn"}
