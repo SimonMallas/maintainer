@@ -13,10 +13,15 @@ import urllib.request
 try:
     from trl import DPOTrainer, DPOConfig
     import dspy
+    from opentelemetry import trace
+    from opentelemetry.sdk.trace import TracerProvider
+    from opentelemetry.sdk.trace.export import BatchSpanProcessor
+    from opentelemetry.exporter.console import ConsoleSpanExporter
 except ImportError:
     DPOTrainer = None
     DPOConfig = object
     dspy = None
+    trace = None
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -909,10 +914,22 @@ async def scheduler(modules: list[MaintainerModule]) -> None:
         await asyncio.sleep(LOOP_SLEEP_SECONDS)
 
 
+async def init_tracing():
+    if trace is None:
+        return
+    provider = TracerProvider()
+    processor = BatchSpanProcessor(ConsoleSpanExporter())
+    provider.add_span_processor(processor)
+    trace.set_tracer_provider(provider)
+    global tracer
+    tracer = trace.get_tracer(__name__)
+
 async def main() -> None:
-    config = load_config()
-    apply_config(config)
-    modules = build_modules(config)
+    init_tracing()
+    with tracer.start_as_current_span("maintainer_init"):
+        config = load_config()
+        apply_config(config)
+        modules = build_modules(config)
 
     if STATUS_API_PORT > 0:
         t = threading.Thread(target=_start_status_server, args=(STATUS_API_HOST, STATUS_API_PORT), daemon=True)
